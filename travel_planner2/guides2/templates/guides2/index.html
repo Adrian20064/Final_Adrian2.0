@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Adrian Carrasco</title>
-    <title>Travel Planner - Select Trip</title>
-  </head>
-  <body>
-    <h1>Sample Form UI Example</h1>
+<h1>Travel Planner - Adrian carrasco</h1>
 
-    <form method="post" action="{% url 'result' %}">
-      {% csrf_token %}
+<form method="post">
+  {% csrf_token %}
 
-      <label for="id_start_city">Select start city:</label>
-      {{ form.start_city }}
+  <label for="start_city">Select start city:</label><br />
+  <select name="start_city" id="start_city" required>
+    <option value="" disabled selected>Select a city</option>
+    {% for city in cities %}
+    <option value="{{ city }}">{{ city }}</option>
+    {% endfor %}
+  </select>
+  <br /><br />
 
-      <br /><br />
+  <label for="max_distance">Enter maximum driving distance (km):</label><br />
+  <input
+    type="number"
+    id="max_distance"
+    name="max_distance"
+    min="1"
+    step="1"
+    required
+  />
+  <br /><br />
 
-      <label for="id_kilometers">Enter maximum driving distance (km):</label>
-      {{ form.kilometers }}
-
-      <br /><br />
-
-      <button type="submit">Submit</button>
-    </form>
-
-    {% if messages %}
-    <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </body>
-</html>
+  <button type="submit">Submit</button>
+</form>
