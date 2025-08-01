@@ -214,4 +214,4 @@ def history(request):
     results = list(history_collection.find().sort("_id", -1))
     for r in results:
         r["_id"] = str(r["_id"]) 
-    return render(request, "guides/history.html", {"results": results})
+    return render(request, "guides2/history.html", {"results": results})
