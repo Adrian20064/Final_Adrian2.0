@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('guides2.urls')),  # Rutas de tu app
+    path('', views.index, name='index'),
+    path('result/', views.result, name='result'),
+    path('history/', views.history, name='history'),
 ]
