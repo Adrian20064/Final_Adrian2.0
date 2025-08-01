@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adrian Carrasco</title>
+    <title>Travel Planner - Select Trip</title>
+  </head>
+  <body>
+    <h1>Sample Form UI Example</h1>
+
+    <form method="post" action="{% url 'result' %}">
+      {% csrf_token %}
+
+      <label for="id_start_city">Select start city:</label>
+      {{ form.start_city }}
+
+      <br /><br />
+
+      <label for="id_kilometers">Enter maximum driving distance (km):</label>
+      {{ form.kilometers }}
+
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>
