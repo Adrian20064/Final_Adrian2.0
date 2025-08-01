@@ -1,6 +1,6 @@
 <h1>Travel Planner by Adrian Carrasco</h1>
 
-<form method="post">
+<form method="post" action="{% url 'result' %}">
   {% csrf_token %}
 
   <label for="start_city">Select start city:</label><br />
