@@ -1,0 +1,28 @@
+<h2>Start City: {{ start_city }}</h2>
+<p>Weather: {{ start_weather.temp }}°C, {{ start_weather.desc }}</p>
+<h3>Suggested Destinations within {{ max_distance }} km:</h3>
+<ul>
+  {% for d in suggested_destinations %}
+  <li>{{ d.city }} — Weather: {{ d.weather.temp }}°C, {{ d.weather.desc }}</li>
+  {% endfor %}
+</ul>
+<h3>Recommended Destination: {{ recommended.city }}</h3>
+<p>Recommended Route:</p>
+<ul>
+  <li>Distance: {{ recommended.route.distance }} km</li>
+  <li>
+    Estimated Driving Time: {{ duration_hours }}h {{ duration_remainder }}m
+  </li>
+</ul>
+<p>Route Steps:</p>
+<ol>
+  {% for step in recommended.route.steps %}
+  <li>{{ step.text }} ({{ step.distance }} m)</li>
+  {% endfor %}
+</ol>
+<p><strong>Advice:</strong> {{ advice }}</p>
+
+<form method="post" action="{% url 'history' %}">
+  {% csrf_token %}
+  <button type="submit">Save query to history</button>
+</form>
