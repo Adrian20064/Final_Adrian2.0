@@ -9,7 +9,7 @@ from django.contrib import messages
 GEO_API_KEY = "7a15765511msh56a61309a87d00cp1483f3jsn949e5ba2536c"
 WEATHER_API_KEY = "01fc4f1f8daea0e2af1d3bbf3cc4f0fb"
 ROUTES_API_KEY = "f4fe44271139d129381fc9e05dd01eb2198732665c3b66f4b405ef78"
-MONGO_URI = "mongodb://3.85.89.94:27017"
+MONGO_URI = "mongodb://54.175.121.173:27017"
 
 client = MongoClient(MONGO_URI)
 db = client["travel_planner"]
