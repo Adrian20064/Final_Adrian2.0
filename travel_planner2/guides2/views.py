@@ -138,7 +138,7 @@ def get_advice(weather, time):
 
 def index(request):
     cities = get_bc_cities()
-    return render(request, 'guides/index.html', {"cities": cities})
+    return render(request, 'guides2/index.html', {"cities": cities})
 
 def result(request):
     if request.method == "POST":
@@ -193,7 +193,7 @@ def result(request):
                 "advice": advice
             })
 
-            return render(request, "guides/result.html", {
+            return render(request, "guides2/result.html", {
                 "start_city": start_city,
                 "start_weather": start_weather,
                 "max_distance": max_distance,
